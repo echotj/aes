@@ -29,11 +29,11 @@ func AES128CBCDec_WithIV(encStr,key string)[]byte{
 }
 //XML格式化
 func XmlFormat(confBytes []byte,formatData interface{}){
-	sdmi_conf_str := string(confBytes)
+	conf_str := string(confBytes)
 	old_encode := `encoding="GBK"`
 	new_encode := `encoding="UTF-8"`
-	sdmi_conf_str =  strings.Replace(sdmi_conf_str,old_encode,new_encode,1)
-	xml.Unmarshal([]byte(sdmi_conf_str),&formatData)
+	sdmi_conf_str =  strings.Replace(conf_str,old_encode,new_encode,1)
+	xml.Unmarshal([]byte(conf_str),&formatData)
 }
 func Sm_GetMD5(s string) string {
 	strings.ToLower(s)
